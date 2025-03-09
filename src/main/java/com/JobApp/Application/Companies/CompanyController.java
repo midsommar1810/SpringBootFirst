@@ -26,12 +26,12 @@ public class CompanyController {
     }
 
     @GetMapping("/companies/{id}")
-    public ResponseEntity<Companies> getById (@RequestBody Long id){
+    public ResponseEntity<Companies> getById (@PathVariable Long id){
         return new ResponseEntity<>(service.findById(id), HttpStatus.OK) ;
     }
 
     @PutMapping("/companies/{id}")
-    public ResponseEntity<String> updateCompany (@RequestBody Long id , @RequestBody Companies updatedCompany){
+    public ResponseEntity<String> updateCompany (@PathVariable Long id , @RequestBody Companies updatedCompany){
         if (service.UpdateCompany(id,updatedCompany)){
             return new ResponseEntity<>("Updated Succesfully",HttpStatus.OK);
         } else {
@@ -40,7 +40,7 @@ public class CompanyController {
     }
 
     @DeleteMapping("/companies/{id}")
-    public ResponseEntity<String> deleteCompany (@RequestBody Long id ){
+    public ResponseEntity<String> deleteCompany (@PathVariable Long id ){
         if (service.DeleteCompany(id)){
             return new ResponseEntity<>("Deleted Succesfully",HttpStatus.OK);
         } else {
