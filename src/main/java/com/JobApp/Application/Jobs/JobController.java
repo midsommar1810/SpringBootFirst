@@ -53,9 +53,5 @@ public class JobController {
         return new ResponseEntity<>("Job not found " , HttpStatus.NOT_FOUND);
     }
 
-    @RequestMapping ("/companies")
-    @GetMapping ("/")
-    public ResponseEntity<List<Job>> findAllCompanies() {
-        return new ResponseEntity<>(this.service.findAll(),HttpStatus.OK);
-    }
+
 }
